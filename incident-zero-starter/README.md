@@ -73,21 +73,7 @@ $env:PROMETHEUS_URL = "http://localhost:9090"
 python app.py --incident data/incidents/checkout-timeout.json --telemetry-mode prometheus
 ```
 
-The live mode queries affected-service error counters from
-`traces_span_metrics_calls_total`, HTTP request counters from
-`http_server_request_duration_seconds_count`, and a five-minute 95th
-percentile latency query from the corresponding histogram. It records every
-query, collection timestamp, source URL, and per-query collection error in the
-JSON report. Missing series are treated as missing evidence rather than
-healthy results. It does not yet fetch Jaeger traces or logs, and it does not
-execute remediation. A low-confidence result is expected when metrics alone
-do not establish the cause.
-
-The request timeout is configurable:
-
-```powershell
-$env:PROMETHEUS_TIMEOUT_SECONDS = "5"
-```
+The live mode currently queries checkout client-span counters from `traces_span_metrics_calls_total`. It records the query and collection timestamp in the JSON report. It does not yet fetch Jaeger traces or logs, and it does not execute remediation. A low-confidence result is expected when metrics alone do not establish the cause.
 
 The offline fixture remains the default so existing tests stay deterministic:
 

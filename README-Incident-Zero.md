@@ -960,21 +960,16 @@ claim remediation or verification succeeded unless it actually did.
 
 ## Final status summary
 
-**Completed:** OpenTelemetry Demo launched with all currently running
-services healthy; Incident Zero starter created and run; six tests passed;
-Prometheus metrics queried live; Jaeger UI opened through its configured
-base path; a slow checkout trace inspected; the agent now records live
-error, request, and latency queries with timestamps and collection errors.
+**Completed:** OpenTelemetry Demo launched; Incident Zero starter
+created and run; three tests passed; Prometheus metrics queried; Jaeger
+UI opened through its configured base path; a slow checkout trace
+inspected.
 
 **In progress:** determine why product-catalog calls are slow; connect
-Jaeger programmatically to the Python agent; produce a ranked live
-diagnosis.
+Prometheus and Jaeger programmatically to the Python agent; produce a
+ranked live diagnosis.
 
-**Not completed yet:** confirmed root cause, Jaeger trace ingestion,
-official Action API integration, real action execution, post-action
-verification, and a complete end-to-end hackathon demo.
-
-**Recommended immediate next task:** inspect the attributes/events on
-the slow `ProductCatalogService/GetProduct` span and compare it with a
-successful trace. Then implement the Prometheus client in `telemetry.py`
-while keeping the offline fixture and approval-safety tests intact.
+**Not completed yet:** confirmed root cause, live telemetry ingestion
+inside the agent, official Action API integration, real action
+execution, post-action verification, and a complete end-to-end hackathon
+demo.
